@@ -43,6 +43,7 @@ body {
   margin: auto;
   color: #f2f2f2;
   font-size: 32px;
+  height: 40px;
 }
 
 .calculator__screen-history {
