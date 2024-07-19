@@ -44,6 +44,9 @@ const seven = document.getElementById("7");
 const eight = document.getElementById("8");
 const nine = document.getElementById("9");
 
+const ac = document.getElementById("ac");
+const del = document.getElementById("del");
+
 const plus = document.getElementById("add");
 const minus = document.getElementById("subtract");
 const multi = document.getElementById("multiply");
@@ -54,6 +57,22 @@ const appendToScreen = (char) => {
     screen.textContent += char;
   }
 };
+
+const clearScreen = () => {
+  screen.textContent = "";
+};
+
+const deleteScreen = () => {
+  screen.textContent = screen.textContent.slice(0, -1);
+};
+
+ac.addEventListener("click", function (e) {
+  clearScreen();
+});
+
+del.addEventListener("click", function (e) {
+  deleteScreen();
+});
 
 zero.addEventListener("click", function (e) {
   appendToScreen("0");
