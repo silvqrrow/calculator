@@ -60,6 +60,7 @@ const minus = document.getElementById("subtract");
 const multi = document.getElementById("multiply");
 const divi = document.getElementById("divide");
 const equals = document.getElementById("equals");
+const signChange = document.getElementById("sign-change");
 
 // Decimal
 const decimal = document.getElementById(".");
@@ -83,6 +84,7 @@ const deleteScreen = () => {
   screen.textContent = screen.textContent.slice(0, -1);
 };
 
+// Operator Click Events
 equals.addEventListener("click", function (e) {
   if (firstNum.length > 0 && secondNum.length > 0 && operator.length > 0) {
     let result = operate(
@@ -97,7 +99,16 @@ equals.addEventListener("click", function (e) {
   }
 });
 
-// Operator Click Events
+signChange.addEventListener("click", function (e) {
+  if (operator.length === 0 && firstNum === screen.textContent) {
+    firstNum = (parseFloat(firstNum) * -1).toString();
+    screen.textContent = firstNum;
+  } else if (operator.length > 0 && secondNum === screen.textContent) {
+    secondNum = (parseFloat(secondNum) * -1).toString();
+    screen.textContent = secondNum;
+  }
+});
+
 plus.addEventListener("click", function (e) {
   if (operator.length === 0 && firstNum.length > 0) {
     operator.push("+");
@@ -213,7 +224,7 @@ decimal.addEventListener("click", function (e) {
 // Number click events
 zero.addEventListener("click", function (e) {
   appendToScreen("0");
-  if (operator.length === 0) {
+  if (operator.length === 0 && firstNum.length > 0) {
     firstNum = firstNum.concat("0");
   } else {
     secondNum = secondNum.concat("0");
