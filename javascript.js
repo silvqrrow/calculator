@@ -17,11 +17,11 @@ const divide = (a, b) => {
 };
 
 const operate = (firstNum, secondNum, operator) => {
-  if (operator[0] === "+") {
+  if (operator === "+") {
     return add(firstNum, secondNum);
-  } else if (operator[0] === "-") {
+  } else if (operator === "-") {
     return subtract(firstNum, secondNum);
-  } else if (operator[0] === "*") {
+  } else if (operator === "*") {
     return multiply(firstNum, secondNum);
   } else {
     return divide(firstNum, secondNum);
@@ -32,6 +32,7 @@ const operate = (firstNum, secondNum, operator) => {
 let firstNum = "";
 let secondNum = "";
 let operator = [];
+let clear = false;
 
 // Screen initialization
 const screen = document.querySelector(".calculator__screen-main");
@@ -64,6 +65,10 @@ const decimal = document.getElementById(".");
 
 // Screen Operators
 const appendToScreen = (char) => {
+  if (clear) {
+    clearScreen();
+    clear = false;
+  }
   if (screen.textContent.length < 10) {
     screen.textContent += char;
   }
@@ -77,6 +82,82 @@ const deleteScreen = () => {
   screen.textContent = screen.textContent.slice(0, -1);
 };
 
+// Operator Click Events
+plus.addEventListener("click", function (e) {
+  if (operator.length === 0 && firstNum.length > 0) {
+    operator.push("+");
+    clear = true;
+  } else {
+    let result = operate(
+      parseFloat(firstNum),
+      parseFloat(secondNum),
+      operator[0]
+    ).toString();
+    firstNum = result;
+    screen.textContent = result.slice(0, 8);
+    operator.pop();
+    operator.push("+");
+    secondNum = "";
+    clear = true;
+  }
+});
+
+minus.addEventListener("click", function (e) {
+  if (operator.length === 0 && firstNum.length > 0) {
+    operator.push("-");
+    clear = true;
+  } else {
+    let result = operate(
+      parseFloat(firstNum),
+      parseFloat(secondNum),
+      operator[0]
+    ).toString();
+    firstNum = result;
+    screen.textContent = result.slice(0, 8);
+    operator.pop();
+    operator.push("-");
+    secondNum = "";
+    clear = true;
+  }
+});
+
+multi.addEventListener("click", function (e) {
+  if (operator.length === 0 && firstNum.length > 0) {
+    operator.push("*");
+    clear = true;
+  } else {
+    let result = operate(
+      parseFloat(firstNum),
+      parseFloat(secondNum),
+      operator[0]
+    ).toString();
+    firstNum = result;
+    screen.textContent = result.slice(0, 8);
+    operator.pop();
+    operator.push("*");
+    secondNum = "";
+    clear = true;
+  }
+});
+
+divi.addEventListener("click", function (e) {
+  if (operator.length === 0 && firstNum.length > 0) {
+    operator.push("/");
+    clear = true;
+  } else {
+    let result = operate(
+      parseFloat(firstNum),
+      parseFloat(secondNum),
+      operator[0]
+    ).toString();
+    firstNum = result;
+    screen.textContent = result.slice(0, 8);
+    operator.pop();
+    operator.push("/");
+    secondNum = "";
+    clear = true;
+  }
+});
 // Clear and Delete click events
 ac.addEventListener("click", function (e) {
   clearScreen();
