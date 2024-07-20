@@ -1,3 +1,5 @@
+// Operator Functions
+
 const add = (a, b) => {
   return a + b;
 };
@@ -14,10 +16,6 @@ const divide = (a, b) => {
   return a / b;
 };
 
-let firstNum = "";
-let secondNum = "";
-let operator = [];
-
 const operate = (firstNum, secondNum, operator) => {
   if (operator[0] === "+") {
     return add(firstNum, secondNum);
@@ -30,9 +28,16 @@ const operate = (firstNum, secondNum, operator) => {
   }
 };
 
+// Initlization of operators and numbers
+let firstNum = "";
+let secondNum = "";
+let operator = [];
+
+// Screen initialization
 const screen = document.querySelector(".calculator__screen-main");
 screen.textContent = "";
 
+// Numbers
 const zero = document.getElementById("0");
 const one = document.getElementById("1");
 const two = document.getElementById("2");
@@ -44,14 +49,17 @@ const seven = document.getElementById("7");
 const eight = document.getElementById("8");
 const nine = document.getElementById("9");
 
+// Clearing and Deleting
 const ac = document.getElementById("ac");
 const del = document.getElementById("del");
 
+// Operators
 const plus = document.getElementById("add");
 const minus = document.getElementById("subtract");
 const multi = document.getElementById("multiply");
 const divi = document.getElementById("divide");
 
+// Screen Operators
 const appendToScreen = (char) => {
   if (screen.textContent.length < 10) {
     screen.textContent += char;
@@ -66,14 +74,24 @@ const deleteScreen = () => {
   screen.textContent = screen.textContent.slice(0, -1);
 };
 
+// Clear and Delete click events
 ac.addEventListener("click", function (e) {
   clearScreen();
+  firstNum = "";
+  secondNum = "";
+  operator = [];
 });
 
 del.addEventListener("click", function (e) {
   deleteScreen();
+  if (operator.length === 0) {
+    firstNum = firstNum.slice(0, -1);
+  } else {
+    secondNum = secondNum.slice(0, -1);
+  }
 });
 
+// Number click events
 zero.addEventListener("click", function (e) {
   appendToScreen("0");
   if (operator.length === 0) {
