@@ -59,6 +59,9 @@ const minus = document.getElementById("subtract");
 const multi = document.getElementById("multiply");
 const divi = document.getElementById("divide");
 
+// Decimal
+const decimal = document.getElementById(".");
+
 // Screen Operators
 const appendToScreen = (char) => {
   if (screen.textContent.length < 10) {
@@ -88,6 +91,17 @@ del.addEventListener("click", function (e) {
     firstNum = firstNum.slice(0, -1);
   } else {
     secondNum = secondNum.slice(0, -1);
+  }
+});
+
+// Decimal click event
+decimal.addEventListener("click", function (e) {
+  if (firstNum.length > 0 && operator.length === 0 && !firstNum.includes(".")) {
+    appendToScreen(".");
+    firstNum = firstNum.concat(".");
+  } else if (secondNum.length > 0 && !secondNum.includes(".")) {
+    appendToScreen(".");
+    secondNum = secondNum.concat(".");
   }
 });
 
