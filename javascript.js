@@ -100,10 +100,18 @@ equals.addEventListener("click", function (e) {
 });
 
 signChange.addEventListener("click", function (e) {
-  if (operator.length === 0 && firstNum === screen.textContent) {
+  if (
+    operator.length === 0 &&
+    firstNum === screen.textContent &&
+    firstNum.length > 0
+  ) {
     firstNum = (parseFloat(firstNum) * -1).toString();
     screen.textContent = firstNum;
-  } else if (operator.length > 0 && secondNum === screen.textContent) {
+  } else if (
+    operator.length > 0 &&
+    secondNum === screen.textContent &&
+    secondNum.length > 0
+  ) {
     secondNum = (parseFloat(secondNum) * -1).toString();
     screen.textContent = secondNum;
   }
