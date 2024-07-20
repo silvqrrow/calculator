@@ -23,6 +23,8 @@ const operate = (firstNum, secondNum, operator) => {
     return subtract(firstNum, secondNum);
   } else if (operator === "*") {
     return multiply(firstNum, secondNum);
+  } else if (operator === "/" && secondNum === 0) {
+    return "Error!"; // Handle division by zero
   } else {
     return divide(firstNum, secondNum);
   }
@@ -190,6 +192,14 @@ divi.addEventListener("click", function (e) {
       parseFloat(secondNum),
       operator[0]
     ).toString();
+    if (result === "Error!") {
+      screen.textContent = "Error";
+      firstNum = "";
+      secondNum = "";
+      operator = [];
+      clear = true;
+      return; // Exit the function early
+    }
     firstNum = result;
     screen.textContent = result.slice(0, 8);
     operator.pop();
