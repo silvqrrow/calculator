@@ -241,10 +241,17 @@ decimal.addEventListener("click", function (e) {
 
 // Number click events
 zero.addEventListener("click", function (e) {
-  appendToScreen("0");
-  if (operator.length === 0 && firstNum.length > 0) {
+  if (operator.length === 0) {
+    if (firstNum === "0") {
+      return;
+    }
+    appendToScreen("0");
     firstNum = firstNum.concat("0");
   } else {
+    if (secondNum === "0") {
+      return;
+    }
+    appendToScreen("0");
     secondNum = secondNum.concat("0");
   }
 });
@@ -252,80 +259,170 @@ zero.addEventListener("click", function (e) {
 one.addEventListener("click", function (e) {
   appendToScreen("1");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("1");
+    if (firstNum === "0") {
+      firstNum = "1";
+      screen.textContent = "1";
+    } else {
+      firstNum = firstNum.concat("1");
+    }
   } else {
-    secondNum = secondNum.concat("1");
+    if (secondNum === "0") {
+      secondNum = "1";
+      screen.textContent = "1";
+    } else {
+      secondNum = secondNum.concat("1");
+    }
   }
 });
 
 two.addEventListener("click", function (e) {
   appendToScreen("2");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("2");
+    if (firstNum === "0") {
+      firstNum = "2";
+      screen.textContent = "2";
+    } else {
+      firstNum = firstNum.concat("2");
+    }
   } else {
-    secondNum = secondNum.concat("2");
+    if (secondNum === "0") {
+      secondNum = "2";
+      screen.textContent = "2";
+    } else {
+      secondNum = secondNum.concat("2");
+    }
   }
 });
 
 three.addEventListener("click", function (e) {
   appendToScreen("3");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("3");
+    if (firstNum === "0") {
+      firstNum = "3";
+      screen.textContent = "3";
+    } else {
+      firstNum = firstNum.concat("3");
+    }
   } else {
-    secondNum = secondNum.concat("3");
+    if (secondNum === "0") {
+      secondNum = "3";
+      screen.textContent = "3";
+    } else {
+      secondNum = secondNum.concat("3");
+    }
   }
 });
 
 four.addEventListener("click", function (e) {
   appendToScreen("4");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("4");
+    if (firstNum === "0") {
+      firstNum = "4";
+      screen.textContent = "4";
+    } else {
+      firstNum = firstNum.concat("4");
+    }
   } else {
-    secondNum = secondNum.concat("4");
+    if (secondNum === "0") {
+      secondNum = "4";
+      screen.textContent = "4";
+    } else {
+      secondNum = secondNum.concat("4");
+    }
   }
 });
 
 five.addEventListener("click", function (e) {
   appendToScreen("5");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("5");
+    if (firstNum === "0") {
+      firstNum = "5";
+      screen.textContent = "5";
+    } else {
+      firstNum = firstNum.concat("5");
+    }
   } else {
-    secondNum = secondNum.concat("5");
+    if (secondNum === "0") {
+      secondNum = "5";
+      screen.textContent = "5";
+    } else {
+      secondNum = secondNum.concat("5");
+    }
   }
 });
 
 six.addEventListener("click", function (e) {
   appendToScreen("6");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("6");
+    if (firstNum === "0") {
+      firstNum = "6";
+      screen.textContent = "6";
+    } else {
+      firstNum = firstNum.concat("6");
+    }
   } else {
-    secondNum = secondNum.concat("6");
+    if (secondNum === "0") {
+      secondNum = "6";
+      screen.textContent = "6";
+    } else {
+      secondNum = secondNum.concat("6");
+    }
   }
 });
 
 seven.addEventListener("click", function (e) {
   appendToScreen("7");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("7");
+    if (firstNum === "0") {
+      firstNum = "7";
+      screen.textContent = "7";
+    } else {
+      firstNum = firstNum.concat("7");
+    }
   } else {
-    secondNum = secondNum.concat("7");
+    if (secondNum === "0") {
+      secondNum = "7";
+      screen.textContent = "7";
+    } else {
+      secondNum = secondNum.concat("7");
+    }
   }
 });
 
 eight.addEventListener("click", function (e) {
   appendToScreen("8");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("8");
+    if (firstNum === "0") {
+      firstNum = "8";
+      screen.textContent = "8";
+    } else {
+      firstNum = firstNum.concat("8");
+    }
   } else {
-    secondNum = secondNum.concat("8");
+    if (secondNum === "0") {
+      secondNum = "8";
+      screen.textContent = "8";
+    } else {
+      secondNum = secondNum.concat("8");
+    }
   }
 });
 
 nine.addEventListener("click", function (e) {
   appendToScreen("9");
   if (operator.length === 0) {
-    firstNum = firstNum.concat("9");
+    if (firstNum === "0") {
+      firstNum = "9";
+      screen.textContent = "9";
+    } else {
+      firstNum = firstNum.concat("9");
+    }
   } else {
-    secondNum = secondNum.concat("9");
+    if (secondNum === "0") {
+      secondNum = "9";
+      screen.textContent = "9";
+    } else {
+      secondNum = secondNum.concat("9");
+    }
   }
 });
