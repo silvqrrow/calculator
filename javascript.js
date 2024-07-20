@@ -82,6 +82,7 @@ const appendToScreen = (char) => {
 };
 
 const clearScreen = () => {
+  history.textContent = screen.textContent;
   screen.textContent = "";
 };
 
