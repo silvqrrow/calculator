@@ -48,6 +48,7 @@ body {
 
 .calculator__screen-history {
   padding: 0px 10px;
+  height: 20px;
   margin: 0;
   font-size: 16px;
   color: #f2f2f29f;

@@ -40,6 +40,9 @@ let clear = false;
 const screen = document.querySelector(".calculator__screen-main");
 screen.textContent = "";
 
+const history = document.querySelector(".calculator__screen-history");
+history.textContent = "";
+
 // Numbers
 const zero = document.getElementById("0");
 const one = document.getElementById("1");
