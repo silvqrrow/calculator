@@ -28,7 +28,7 @@ const operate = (firstNum, secondNum, operator) => {
   }
 };
 
-// Initlization of operators and numbers
+// Initialization of operators and numbers
 let firstNum = "";
 let secondNum = "";
 let operator = [];
@@ -87,7 +87,7 @@ plus.addEventListener("click", function (e) {
   if (operator.length === 0 && firstNum.length > 0) {
     operator.push("+");
     clear = true;
-  } else {
+  } else if (firstNum.length > 0 && secondNum.length > 0) {
     let result = operate(
       parseFloat(firstNum),
       parseFloat(secondNum),
@@ -99,6 +99,8 @@ plus.addEventListener("click", function (e) {
     operator.push("+");
     secondNum = "";
     clear = true;
+  } else if (operator.length > 0) {
+    operator[0] = "+";
   }
 });
 
@@ -106,7 +108,7 @@ minus.addEventListener("click", function (e) {
   if (operator.length === 0 && firstNum.length > 0) {
     operator.push("-");
     clear = true;
-  } else {
+  } else if (firstNum.length > 0 && secondNum.length > 0) {
     let result = operate(
       parseFloat(firstNum),
       parseFloat(secondNum),
@@ -118,6 +120,8 @@ minus.addEventListener("click", function (e) {
     operator.push("-");
     secondNum = "";
     clear = true;
+  } else if (operator.length > 0) {
+    operator[0] = "-";
   }
 });
 
@@ -125,7 +129,7 @@ multi.addEventListener("click", function (e) {
   if (operator.length === 0 && firstNum.length > 0) {
     operator.push("*");
     clear = true;
-  } else {
+  } else if (firstNum.length > 0 && secondNum.length > 0) {
     let result = operate(
       parseFloat(firstNum),
       parseFloat(secondNum),
@@ -137,6 +141,8 @@ multi.addEventListener("click", function (e) {
     operator.push("*");
     secondNum = "";
     clear = true;
+  } else if (operator.length > 0) {
+    operator[0] = "*";
   }
 });
 
@@ -144,7 +150,7 @@ divi.addEventListener("click", function (e) {
   if (operator.length === 0 && firstNum.length > 0) {
     operator.push("/");
     clear = true;
-  } else {
+  } else if (firstNum.length > 0 && secondNum.length > 0) {
     let result = operate(
       parseFloat(firstNum),
       parseFloat(secondNum),
@@ -156,8 +162,11 @@ divi.addEventListener("click", function (e) {
     operator.push("/");
     secondNum = "";
     clear = true;
+  } else if (operator.length > 0) {
+    operator[0] = "/";
   }
 });
+
 // Clear and Delete click events
 ac.addEventListener("click", function (e) {
   clearScreen();
