@@ -65,3 +65,9 @@ body {
 .clear {
   background-color: #ced2e0;
 }
+
+#ac,
+#sign-change,
+#del {
+  font-size: 16px;
+}
