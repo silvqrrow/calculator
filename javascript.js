@@ -59,6 +59,7 @@ const plus = document.getElementById("add");
 const minus = document.getElementById("subtract");
 const multi = document.getElementById("multiply");
 const divi = document.getElementById("divide");
+const equals = document.getElementById("equals");
 
 // Decimal
 const decimal = document.getElementById(".");
@@ -81,6 +82,20 @@ const clearScreen = () => {
 const deleteScreen = () => {
   screen.textContent = screen.textContent.slice(0, -1);
 };
+
+equals.addEventListener("click", function (e) {
+  if (firstNum.length > 0 && secondNum.length > 0 && operator.length > 0) {
+    let result = operate(
+      parseFloat(firstNum),
+      parseFloat(secondNum),
+      operator[0]
+    ).toString();
+    screen.textContent = result.slice(0, 8);
+    firstNum = result;
+    secondNum = "";
+    operator = [];
+  }
+});
 
 // Operator Click Events
 plus.addEventListener("click", function (e) {
